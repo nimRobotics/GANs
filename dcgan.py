@@ -1,3 +1,10 @@
+"""
+DCGAN implementation in PyTorch. 
+Original source: https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html
+
+Modified @nimrobotics
+"""
+
 from __future__ import print_function
 import argparse
 import os
@@ -52,59 +59,15 @@ cudnn.benchmark = True
 if torch.cuda.is_available() and not opt.cuda:
     print("WARNING: You have a CUDA device, so you should probably run with --cuda")
   
-if opt.dataroot is None and str(opt.dataset).lower() != 'fake':
-    raise ValueError("`dataroot` parameter is required for dataset \"%s\"" % opt.dataset)
 
-if opt.dataset in ['imagenet', 'folder', 'lfw']:
-    # folder dataset
-    dataset = dset.ImageFolder(root=opt.dataroot,
-                               transform=transforms.Compose([
-                                   transforms.Resize(opt.imageSize),
-                                   transforms.CenterCrop(opt.imageSize),
-                                   transforms.ToTensor(),
-                                   transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-                               ]))
-    nc=3
-elif opt.dataset == 'faces':
-    dataset = FacesDataset(dataset_dir=opt.dataroot,
+dataset = dset.ImageFolder(root=opt.dataroot,
                             transform=transforms.Compose([
                                 transforms.Resize(opt.imageSize),
+                                transforms.CenterCrop(opt.imageSize),
                                 transforms.ToTensor(),
-                                transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))
+                                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
                             ]))
-    nc=3
-elif opt.dataset == 'lsun':
-    classes = [ c + '_train' for c in opt.classes.split(',')]
-    dataset = dset.LSUN(root=opt.dataroot, classes=classes,
-                        transform=transforms.Compose([
-                            transforms.Resize(opt.imageSize),
-                            transforms.CenterCrop(opt.imageSize),
-                            transforms.ToTensor(),
-                            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-                        ]))
-    nc=3
-elif opt.dataset == 'cifar10':
-    dataset = dset.CIFAR10(root=opt.dataroot, download=True,
-                           transform=transforms.Compose([
-                               transforms.Resize(opt.imageSize),
-                               transforms.ToTensor(),
-                               transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-                           ]))
-    nc=3
-
-elif opt.dataset == 'mnist':
-        dataset = dset.MNIST(root=opt.dataroot, download=True,
-                           transform=transforms.Compose([
-                               transforms.Resize(opt.imageSize),
-                               transforms.ToTensor(),
-                               transforms.Normalize((0.5,), (0.5,)),
-                           ]))
-        nc=1
-
-elif opt.dataset == 'fake':
-    dataset = dset.FakeData(image_size=(3, opt.imageSize, opt.imageSize),
-                            transform=transforms.ToTensor())
-    nc=3
+nc=3
 
 assert dataset
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=opt.batchSize,

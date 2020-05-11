@@ -1,3 +1,9 @@
+"""
+GAN implementation in PyTorch
+
+@nimrobotics
+"""
+
 import os
 import time
 import torch
@@ -6,9 +12,11 @@ import torchvision
 from torchvision import transforms
 from torchvision.utils import save_image
 from metric import *
+
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print('Training on {}'.format(device))
 
+############# set the hyper-parameters ##############################
 latent_dim = 64
 hidden_dim = 256
 input_dim = 784

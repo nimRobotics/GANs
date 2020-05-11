@@ -1,3 +1,9 @@
+"""
+WGAN implementation in PyTorch
+
+@nimrobotics
+"""
+
 import os
 import time
 import torch

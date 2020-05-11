@@ -1,8 +1,12 @@
 """
-metric.py taken from: https://github.com/xuqiantong/GAN-Metrics
+Utility to calculate meterics for various GANs 
+
+Original source: https://github.com/xuqiantong/GAN-Metrics
 Original Author: Qiantong Xu
-Modified by: Aakash Yadav
+
+Modified @nimrobotics
 """
+
 import math
 import os
 # from gurobipy import *
