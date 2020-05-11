@@ -2,7 +2,7 @@
 
 This repo contains the implementations for [GAN](https://arxiv.org/abs/1406.2661), [WGAN](https://arxiv.org/abs/1701.07875), and [DCGAN](https://arxiv.org/abs/1511.06434).
 
-**Authors:** Aakash Yadav
+**Author(s):** Aakash Yadav
 
 ### Usage
   - To start the GUI run the `gui.py`file i.e.`python3 gui.py` from the command line
@@ -12,10 +12,9 @@ This repo contains the implementations for [GAN](https://arxiv.org/abs/1406.2661
 
 ### Dataset
   - [MNIST](http://yann.lecun.com/exdb/mnist/)
-  - Custom Face Dataset
+  - Custom Face Dataset (Not available publicly)
 
 ### Requirements
   - Python 3.6.9
   - `pip3 install -r requirements.txt`
   
-### App GUI
