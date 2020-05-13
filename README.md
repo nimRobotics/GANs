@@ -3,7 +3,7 @@
 This repo contains the implementations for [GAN](https://arxiv.org/abs/1406.2661), [WGAN](https://arxiv.org/abs/1701.07875), and [DCGAN](https://arxiv.org/abs/1511.06434). This was done as a course project and the slides are available [here](https://nimrobotics.github.io/assets/projects/gan.pdf).
 
 **Author(s):** Aakash Yadav
-
+[![](https://img.shields.io/twitter/follow/nimrobotics.svg?style=social)](https://twitter.com/intent/follow?screen_name=nimrobotics)
 ### Usage
 To run 
   - GAN with MNIST: `python3 gan.py`
