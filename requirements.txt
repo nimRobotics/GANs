@@ -5,6 +5,6 @@ torchtext==0.3.1
 torchvision==0.6.0+cu101
 matplotlib==3.2.1
 numpy==1.22.0
-scipy==1.4.1
+scipy==1.10.0
 opencv-contrib-python==4.2.0.32
 opencv-python==4.2.0.32
